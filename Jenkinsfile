@@ -26,7 +26,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(registryCredential: 'dockerbuildbot-index.docker.io', url:'') {
+        withDockerRegistry(dockeruser: 'dockerbuildbot-index.docker.io', url:'') {
           sh 'docker push hemantakumarpati/result'
         }
       }
@@ -36,7 +36,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(registryCredential: 'dockerbuildbot-index.docker.io', url:'') {
+        withDockerRegistry(dockeruser: 'dockerbuildbot-index.docker.io', url:'') {
           sh 'docker push hemantakumarpati/vote'
         }
       }
@@ -46,7 +46,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(registryCredential: 'dockerbuildbot-index.docker.io', url:'') {
+        withDockerRegistry(dockeruser: 'dockerbuildbot-index.docker.io', url:'') {
           sh 'docker push hemantakumarpati/worker'
         }
       }
