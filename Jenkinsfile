@@ -22,30 +22,21 @@ pipeline {
       }
     }
     stage('Push result image') {
-      when {
-        branch 'master'
-      }
-      steps {
+       steps {
         withDockerRegistry(credentialsId: 'registry.hub.docker.com', url:'') {
           sh 'docker push hemantakumarpati/result'
         }
       }
     }
     stage('Push vote image') {
-      when {
-        branch 'master'
-      }
-      steps {
+       steps {
         withDockerRegistry(credentialsId: 'registry.hub.docker.com', url:'') {
           sh 'docker push hemantakumarpati/vote'
         }
       }
     }
     stage('Push worker image') {
-      when {
-        branch 'master'
-      }
-      steps {
+       steps {
         withDockerRegistry(credentialsId: 'registry.hub.docker.com', url:'') {
           sh 'docker push hemantakumarpati/worker'
         }
