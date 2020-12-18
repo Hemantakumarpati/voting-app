@@ -27,7 +27,7 @@ pipeline {
           docker.withRegistry('https://registry.hub.docker.com', 'dockeruser') {
           sh "docker login -u ${USERNAME} -p ${PASSWORD}"
           dockerImage.push("$BUILD_NUMBER")
-          dockerImage.push hemantakumarpati/result:latest
+          dockerImage.push hemantakumarpati/result
         }
       }
     }
