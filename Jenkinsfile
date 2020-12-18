@@ -28,6 +28,7 @@ pipeline {
           sh "docker login -u ${USERNAME} -p ${PASSWORD}"
           dockerImage.push("$BUILD_NUMBER")
           dockerImage.push hemantakumarpati/result
+          }
         }
       }
     }
