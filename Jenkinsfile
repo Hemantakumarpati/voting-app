@@ -23,7 +23,7 @@ pipeline {
     }
    stage('Push result image') {
       steps {
-        docker.withRegistry('https://registry.hub.docker.com') {
+        withDockerRegistry('https://registry.hub.docker.com', url:'') {
           sh "docker login -u hemantakumarpati -p Master@1927"
           sh 'docker push hemantakumarpati/result'
         }
