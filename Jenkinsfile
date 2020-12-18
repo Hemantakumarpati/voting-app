@@ -23,7 +23,7 @@ pipeline {
     }
    stage('Push result image') {
       steps {
-        withDockerRegistry('https://registry.hub.docker.com', url:'') {
+        withDockerRegistry([credentialsId: 'dockeruser', url: 'registry.hub.docker.com']) {
           sh "docker login -u hemantakumarpati -p Master@1927"
           sh 'docker push hemantakumarpati/result'
         }
@@ -32,7 +32,7 @@ pipeline {
     
     stage('Push vote image') {
        steps {
-        withDockerRegistry(credentialsId: 'registry.hub.docker.com', url:'') {
+        withDockerRegistry([credentialsId: 'dockeruser', url: 'registry.hub.docker.com']) {
           sh 'docker push hemantakumarpati/vote'
         }
       }
