@@ -24,7 +24,7 @@ pipeline {
    stage('Push result image') {
       steps {
         withDockerRegistry([credentialsId: 'dockeruser', url: 'https://registry.hub.docker.com']) {
-          sh "docker login -u hemantakumarpati -p Master@1927"
+          //sh "docker login -u hemantakumarpati -p Master@1927"
           sh 'docker push hemantakumarpati/result'
         }
       }
@@ -33,7 +33,7 @@ pipeline {
     stage('Push vote image') {
        steps {
         withDockerRegistry([credentialsId: 'dockeruser', url: 'https://registry.hub.docker.com']) {
-          sh "docker login -u hemantakumarpati -p Master@1927"
+          //sh "docker login -u hemantakumarpati -p Master@1927"
           sh 'docker push hemantakumarpati/vote'
         }
       }
@@ -41,7 +41,7 @@ pipeline {
     stage('Push worker image') {
        steps {
         withDockerRegistry([credentialsId: 'dockeruser', url: 'https://registry.hub.docker.com']) {
-          sh "docker login -u hemantakumarpati -p Master@1927"
+          //sh "docker login -u hemantakumarpati -p Master@1927"
           sh 'docker push hemantakumarpati/worker'
         }
       }
