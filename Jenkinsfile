@@ -23,15 +23,12 @@ pipeline {
     }
     stage('Push result image') {
        steps {
-          withCredentials([usernamePassword( credentialsId: 'dockeruser', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          docker.withRegistry('https://registry.hub.docker.com', 'dockeruser') {
-          sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-          dockerImage.push("$BUILD_NUMBER")
-          dockerImage.push hemantakumarpati/result
+          script {
+          sh "/home/hemant_pati/dockerpush.sh ${BUILD_NUMBER}"
           }
         }
       }
-    }
+    
     stage('Push vote image') {
        steps {
         withDockerRegistry(credentialsId: 'registry.hub.docker.com', url:'') {
