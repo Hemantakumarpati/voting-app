@@ -21,13 +21,13 @@ pipeline {
         sh 'docker build -t hemantakumarpati/worker ./worker'
       }
     }
-    stage('Push result image') {
-       steps {
-          script {
-          sh "/home/hemant_pati/dockerpush.sh ${BUILD_NUMBER}"
-          }
+   stage('Push result image') {
+      steps {
+        withDockerRegistry(credentialsId: 'https://registry.hub.docker.com', 'dockeruser') {
+          sh 'docker push hemantakumarpati/result'
         }
       }
+    }
     
     stage('Push vote image') {
        steps {
