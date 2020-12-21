@@ -29,7 +29,7 @@ pipeline {
         }
       }
     }
-    stage('Push result image') {
+    stage('Push vote image') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
@@ -37,7 +37,7 @@ pipeline {
         }
       }
     }
-    stage('Push result image') {
+    stage('Push worker image') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
