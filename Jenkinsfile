@@ -1,9 +1,9 @@
 pipeline {
-  environment {
-    registry = "hemantakumarpati/votingapp"
-    registryCredential = 'dockeruser'
-    dockerImage = ''
- }
+  //environment {
+    //registry = "hemantakumarpati/votingapp"
+    //registryCredential = 'dockeruser'
+    //dockerImage = ''
+// }
   agent any
   stages {
     stage('Build result') {
