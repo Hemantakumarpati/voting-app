@@ -4,17 +4,17 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-        sh "docker build -t hemantakumarpati/result:${env.BUILD_NUMBER} ."
+        sh "docker build -t hemantakumarpati/result:${env.BUILD_NUMBER} ./result"
       }
     } 
     stage('Build vote') {
       steps {
-        sh "docker build -t hemantakumarpati/vote:${env.BUILD_NUMBER} ."
+        sh "docker build -t hemantakumarpati/vote:${env.BUILD_NUMBER} ./vote"
       }
     }
     stage('Build worker') {
       steps {
-       sh "docker build -t hemantakumarpati/worker:${env.BUILD_NUMBER} ."
+       sh "docker build -t hemantakumarpati/worker:${env.BUILD_NUMBER} ./worker"
       }
     }
    stage('Push result image') {
