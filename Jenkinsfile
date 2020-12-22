@@ -21,7 +21,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh "docker push hemantakumarpati/result:latest"
+          sh "docker push hemantakumarpati/result:${env.BUILD_NUMBER}"
         }
       }
     }
@@ -29,7 +29,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh "docker push hemantakumarpati/vote:latest"
+          sh "docker push hemantakumarpati/vote:${env.BUILD_NUMBER}"
         }
       }
     }
@@ -37,7 +37,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh "docker push hemantakumarpati/worker:latest"
+          sh "docker push hemantakumarpati/worker:${env.BUILD_NUMBER}"
         }
       }
     }
