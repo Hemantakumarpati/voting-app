@@ -1,24 +1,20 @@
 pipeline {
-  //environment {
-    //registry = "hemantakumarpati/votingapp"
-    //registryCredential = 'dockeruser'
-    //dockerImage = ''
-// }
-  agent any
+   agent any
+
   stages {
     stage('Build result') {
       steps {
-        sh 'docker build -t hemantakumarpati/result ./result'
+        sh "docker build -t hemantakumarpati/result:${env.BUILD_NUMBER} ."
       }
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t hemantakumarpati/vote ./vote'
+        sh "docker build -t hemantakumarpati/vote:${env.BUILD_NUMBER} ."
       }
     }
     stage('Build worker') {
       steps {
-        sh 'docker build -t hemantakumarpati/worker ./worker'
+       sh "docker build -t hemantakumarpati/worker:${env.BUILD_NUMBER} ."
       }
     }
    stage('Push result image') {
