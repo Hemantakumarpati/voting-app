@@ -41,5 +41,13 @@ pipeline {
         }
       }
     }
+   //stage('Deploy Image') {
+     // steps {
+       //   withKubeConfig([credentialsId: 'kubeconfig']) {
+         // sh 'kubectl apply -f service.yaml'
+        //}
+      //}
+  //}
+}  
  }
 }
