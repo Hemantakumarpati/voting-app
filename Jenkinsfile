@@ -45,7 +45,7 @@ pipeline {
          steps {
             script {
                env.PIPELINE_NAMESPACE = "default"
-               kubernetesDeploy kubeconfigId: 'kubeconfig', configs: 'k8s-specifications/'
+               kubernetesDeploy kubeconfig: 'kubeconfig', configs: 'k8s-specifications/'
             }
          }
       }
