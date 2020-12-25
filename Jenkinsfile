@@ -43,8 +43,8 @@ pipeline {
     }
    stage('Deploy Image') {
       steps {
-          kubernetesDeploy(configs: "kubectl create -f k8s-specifications/", kubeconfigId: "kubeconfig") {
-          
+          kubernetesDeploy([kubeconfigId: 'kubeconfig']) {
+          sh "kubectl create -f k8s-specifications/"
         }
       }
   }
