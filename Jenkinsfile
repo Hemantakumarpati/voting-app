@@ -42,9 +42,10 @@ pipeline {
       }
     }
      stage('Run kubectl') {
+        steps {
       //container('kubectl') {
         sh "kubectl get nodes"
-      //}
+      }
     }
    stage('Deploy on test') {
          steps {
