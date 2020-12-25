@@ -41,17 +41,11 @@ pipeline {
         }
       }
     }
-     stage('Run kubectl') {
-        steps {
-      //container('kubectl') {
-        sh "kubectl get nodes"
-      }
-    }
-   stage('Deploy on test') {
+    stage('Deploy on test') {
          steps {
             script {
                env.PIPELINE_NAMESPACE = "default"
-               kubernetesDeploy(kubeconfigId: 'kubeconfig', configs: 'k8s-specifications/')
+               kubernetesDeploy(kubeconfigId: 'mykubeconfig', configs: 'k8s-specifications/')
             }
          }
       }
