@@ -16,5 +16,5 @@ spec:
         app: worker
     spec:
       containers:
-      - image: hemantakumarpati/worker
+      - image: hemantakumarpati/worker:5
         name: worker
